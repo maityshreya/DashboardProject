@@ -1,0 +1,108 @@
+
+{% extends 'partials/base.html' %}
+
+
+{% block content %}
+
+    <div class="row mt-5">
+        <div class="col-md-4 mt-2">
+            <h4>Add Data</h4>
+            <hr>
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for = "Likelihood">Likelihood :</label>
+                    <input type = "Likelihood"  class="form-control" id="Likelihood">
+                </div>
+
+                <div class="form-group">
+                    <label for = "Intensity"> Intensity :</label>
+                    <input type = "Intensity"  class="form-control" id="Intensity">
+                </div>
+               
+                <div class="form-group">
+                    <label for = "Relevance">Relevance :</label>
+                    <input type = "Relevance"  class="form-control" id="Relevance">
+                </div>
+
+                <div class="form-group">
+                    <label for = "Topics">Topics:</label>
+                    <input type = "Topics"  class="form-control" id="Topics">
+                </div>
+
+                <div class="form-group">
+                    <label for = "Year">Year :</label>
+                    <input type = "Year"  class="form-control" id="Year">
+                </div>
+                
+                <div class="form-group">
+                    <label for = "Region">Region :</label>
+                    <input type = "Region"  class="form-control" id="Region">
+                </div>
+
+                <div class="form-group">
+                    <label for = "Country">Country :</label>
+                    <input type = "Country"  class="form-control" id="Country">
+                </div>
+
+                <div class="form-group">
+                    <label for = "City">City :</label>
+                    <input type = "City"  class="form-control" id="City">
+                </div>
+               
+                <input class="btn btn-success mt-2" type="submit" value="Add Data">
+
+            </form>
+
+        </div>
+
+        <div class="col-md-8">
+            <canvas id="myChart" width="400" height="250"></canvas>
+                <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ["Intensity","Likelihood","Relevance","Topics","Region","City","Country","Year"],
+                        datasets: [{
+                            label: 'data',
+                            data: [6,3,2,"gas","Northern America","United States of America","United States of America",2017],
+                            data:[156,67,181,"pestiside","Africa-Northen","Africa","Africa",2006],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 206, 86, 0.8)',
+                                'rgba(75, 192, 192, 0.8)',
+                                'rgba(153, 102, 255, 0.8)',
+                                'rgba(255, 159, 64, 0.8)',
+                                'rgba(240, 120, 50, 0.8)',
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)',
+                                'rgba(240, 120, 50, 1)',
+
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+        </div>
+    </div>
+
+
+
+{% endblock %}
